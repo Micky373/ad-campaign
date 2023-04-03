@@ -15,9 +15,9 @@ uploaded_file = st.file_uploader("Drag and drop a CSV file here")
 
 def do_analysis():
     df = pd.read_csv(uploaded_file)
-    # Editing the data
-    df.loc[df['Start'] == 101,'Start'] = '1/01'
-    df.loc[df['Stop'] == 131,'Stop'] = '1/31'
+    # # Editing the data
+    # df.loc[df['Start'] == 101,'Start'] = '1/01'
+    # df.loc[df['Stop'] == 131,'Stop'] = '1/31'
     # Displaying the whole dataset
     st.dataframe(df)
 
@@ -42,8 +42,8 @@ def do_analysis():
 
     # Let us change some columns to date time and the invoice into object
     df['Invoice'] = df['Invoice'].astype('object')
-    df['Start'] = pd.to_datetime(df['Start']+'/2023', format='%m/%d/%Y')
-    df['Stop'] = pd.to_datetime(df['Stop']+'/2023', format='%m/%d/%Y')
+    # df['Start'] = pd.to_datetime(df['Start']+'/2023', format='%m/%d/%Y')
+    # df['Stop'] = pd.to_datetime(df['Stop']+'/2023', format='%m/%d/%Y')
 
     # Let us see all unique values in our non-numerical columns
     st.header("Non-numerical Columns Analysis")

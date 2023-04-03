@@ -15,18 +15,14 @@ st.title("Data Visualization for Ad-Campaign")
 uploaded_file = st.file_uploader("Drag and drop a CSV file here")
 
 def do_analysis():
+    # Reading the data
     df = pd.read_csv(uploaded_file)
-    # # Editing the data
-    # df.loc[df['Start'] == 101,'Start'] = '1/01'
-    # df.loc[df['Stop'] == 131,'Stop'] = '1/31'
-    # Displaying the whole dataset
-    # st.dataframe(df)
 
     # Taking only some of the useful columns
     useful_columns = list(df.columns)
     columns_to_be_removed = [
         'CPL-TRAE',
-    'CPL-ACT', 
+        'CPL-ACT', 
         'Dur-C', 
         'Elap-C',
         'C-Actual', 
@@ -37,26 +33,8 @@ def do_analysis():
     for column in columns_to_be_removed:
         useful_columns.remove(column)
 
-    # Taking only portion of our dataset
-    # st.header("This is the useful data that we are going to analyze:")
-    # st.dataframe(df[useful_columns])
-
-    # Let us change some columns to date time and the invoice into object
+    # Let us change the invoice into object
     df['Invoice'] = df['Invoice'].astype('object')
-    # df['Start'] = pd.to_datetime(df['Start']+'/2023', format='%m/%d/%Y')
-    # df['Stop'] = pd.to_datetime(df['Stop']+'/2023', format='%m/%d/%Y')
-
-    # Let us see all unique values in our non-numerical columns
-    # st.header("Non-numerical Columns Analysis")
-    # for column in useful_columns:
-    #     if df[column].dtype == 'O':
-    #         st.write(f"Unique values in {column} column are -->\
-    #         {df[column].unique()}")
-
-    # Let us see statstical values of our numerical values
-    # st.header("Numerical Columns Analysis")
-    # num_cols = df.select_dtypes(include=['int64', 'float64']).columns
-    # st.table(df[num_cols].describe())
 
     # Scatter plots of actual vs budget
     # This will help us to see if we are under or over budget spending

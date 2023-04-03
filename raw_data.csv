@@ -1,0 +1,11 @@
+﻿Invoice,Silo,Status,Client,Market,Position,Start,Stop,Dur,Elap,Ad-Leads,Budget,Actual,CPL-TRAE,CPL-ACT,Dur-C,Elap-C,Target,Leads,Gross,CPL-G,C-Actual,CPL-A,CLF
+160995,S41,Running,K-Line,All Inclusive,Driver / Drivers,101,131,31,18,6,600,175.69,29.04,29.28,31,18,59,190,6995,21.38,1323.17,6.96,5.55
+160995,S26,Running,K-Line,All Inclusive,Driver / Drivers,101,131,31,18,10,700,172.06,20.32,17.21,31,18,59,190,6995,21.38,1323.17,6.96,5.55
+160995,S05,Running,K-Line,All Inclusive,Driver / Drivers,101,131,31,18,5,400,135,23.22,27,31,18,59,190,6995,21.38,1323.17,6.96,5.55
+160995,S01,Running,K-Line,All Inclusive,Driver / Drivers,101,131,31,18,25,2500,740.42,29.03,29.62,31,18,59,190,6995,21.38,1323.17,6.96,5.55
+160925,S01,Running,E-Line,Hiring Area - OTR,Driver / Drivers,101,131,31,18,1,200,91.25,58.14,91.25,31,18,5,9,700,45.16,181.25,20.14,3.1
+160974,S41,Running,U-Line,Portland OR - Relocation,Driver / Drivers,101,131,31,18,7,1000,305.76,41.48,43.68,31,18,134,529,18995.25,20.85,4046.36,7.65,6.81
+160974,S09,Running,U-Line,Portland OR - Relocation,Driver / Drivers,101,131,31,18,0,100,0,29.03225806,0,31,18,134,529,18995.25,20.85,4046.36,7.65,6.81
+160974,S07,New,U-Line,Portland OR - Relocation,Driver / Drivers,101,131,31,18,0,100,0,29.03225806,0,31,18,134,529,18995.25,20.85,4046.36,7.65,6.81
+160974,S08,Running,U-Line,Portland OR - Relocation,Driver / Drivers,101,131,31,18,83,6500,0,22.74,0,31,18,134,529,18995.25,20.85,4046.36,7.65,6.81
+160974,S03,Submitted,U-Line,Portland OR - Relocation,Driver / Drivers,101,131,31,18,13,1000,500,22.33,38.46,31,18,134,529,18995.25,20.85,4046.36,7.65,6.81

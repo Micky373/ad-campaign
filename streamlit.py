@@ -3,6 +3,7 @@ import pandas as pd # For dataframe related tasks
 import streamlit as st # For our webapp
 import seaborn as sns # For data visualization
 import matplotlib.pyplot as plt # For data visualizations
+import plotly.express as px
 
 # Disabling warnings
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -164,6 +165,59 @@ def do_analysis():
     # Display plot in Streamlit
     st.header("Success rate of our campaign in percent per each client")
     st.pyplot(fig)
+
+    # Creating a side bar select box for pie chart visualization
+    st.header("Pie chart visualization for some columns")
+    # Set up the dropdown menu
+    option = st.selectbox(
+        'Select a variable for a pie chart visualization',
+        ('Position', 'Market', 'Job Status')
+    )
+
+    # Filter the data based on the user's selection
+    if option == 'Position':
+        data = df.groupby('Position').sum()['Leads']
+    elif option == 'Market':
+        data = df.groupby('Market').sum()['Leads']
+    else:
+        data = df.groupby('Status').sum()['Leads']
+
+    # Create a pie chart
+    fig = px.pie(data, values='Leads', names=data.index)
+
+    # Display the chart
+    st.plotly_chart(fig)
+
+    # Creating a visualization for leads by position
+    st.header("Leads by position")
+    # Creating a dictionary to store the total leads by position
+    leads_by_position = {}
+
+    # Loop through each row in the dataframe and increment the leads count for each position
+    for _ , row in df.iterrows():
+        position = row['Position']
+        leads = row['Leads']
+        if position in leads_by_position:
+            leads_by_position[position] += leads
+        else:
+            leads_by_position[position] = leads
+
+    # Create lists for x and y values
+    positions = list(leads_by_position.keys())
+    leads_count = list(leads_by_position.values())
+
+    fig , ax = plt.subplots()
+    # Create the bar chart
+    ax.bar(positions, leads_count)
+
+    # Add labels and title
+    ax.set_xlabel('Position')
+    ax.set_ylabel('Leads')
+    ax.set_title('Total Leads by Position')
+
+    # Show the chart
+    st.pyplot(fig)
+
 
 # Load the data when a file is uploaded
 if uploaded_file is not None:

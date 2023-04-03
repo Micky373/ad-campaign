@@ -20,7 +20,7 @@ def do_analysis():
     # df.loc[df['Start'] == 101,'Start'] = '1/01'
     # df.loc[df['Stop'] == 131,'Stop'] = '1/31'
     # Displaying the whole dataset
-    st.dataframe(df)
+    # st.dataframe(df)
 
     # Taking only some of the useful columns
     useful_columns = list(df.columns)
@@ -38,8 +38,8 @@ def do_analysis():
         useful_columns.remove(column)
 
     # Taking only portion of our dataset
-    st.header("This is the useful data that we are going to analyze:")
-    st.dataframe(df[useful_columns])
+    # st.header("This is the useful data that we are going to analyze:")
+    # st.dataframe(df[useful_columns])
 
     # Let us change some columns to date time and the invoice into object
     df['Invoice'] = df['Invoice'].astype('object')
@@ -47,16 +47,16 @@ def do_analysis():
     # df['Stop'] = pd.to_datetime(df['Stop']+'/2023', format='%m/%d/%Y')
 
     # Let us see all unique values in our non-numerical columns
-    st.header("Non-numerical Columns Analysis")
-    for column in useful_columns:
-        if df[column].dtype == 'O':
-            st.write(f"Unique values in {column} column are -->\
-            {df[column].unique()}")
+    # st.header("Non-numerical Columns Analysis")
+    # for column in useful_columns:
+    #     if df[column].dtype == 'O':
+    #         st.write(f"Unique values in {column} column are -->\
+    #         {df[column].unique()}")
 
     # Let us see statstical values of our numerical values
-    st.header("Numerical Columns Analysis")
-    num_cols = df.select_dtypes(include=['int64', 'float64']).columns
-    st.table(df[num_cols].describe())
+    # st.header("Numerical Columns Analysis")
+    # num_cols = df.select_dtypes(include=['int64', 'float64']).columns
+    # st.table(df[num_cols].describe())
 
     # Scatter plots of actual vs budget
     # This will help us to see if we are under or over budget spending
